@@ -1,0 +1,40 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  name: vm-debian
+  namespace: testnamespace
+spec:
+  running: true
+  template:
+    metadata:
+      labels:
+        vm: debian
+    spec:
+      domain:
+        cpu:
+          cores: 2
+        devices:
+          disks:
+          - disk:
+              bus: virtio
+            name: harddrive
+            bootOrder: 1
+          interfaces:
+          - masquerade: {}
+            model: e1000
+            name: default  
+        machine:
+          type: q35
+        resources:
+          requests:
+            memory: 2G
+      networks:
+      - name: default
+        pod: {}
+      volumes:
+      - name: cdromiso
+        persistentVolumeClaim:
+          claimName: iso-debian
+      - name: harddrive
+        persistentVolumeClaim:
+          claimName: pvc-debian

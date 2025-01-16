@@ -1,0 +1,50 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  name: vm-win10
+  namespace: testnamespace
+spec:
+  running: true
+  template:
+    metadata:
+      labels:
+        vm: win10
+    spec:
+      domain:
+        cpu:
+          cores: 2
+        devices:
+          disks:
+          - cdrom:
+              bus: sata
+            name: cdromiso
+            bootOrder: 1
+          - disk:
+              bus: virtio
+            name: harddrive
+            bootOrder: 2
+          - cdrom:
+              bus: sata
+            name: virtiocontainerdisk
+          interfaces:
+          - masquerade: {}
+            model: e1000
+            name: default  
+        machine:
+          type: q35
+        resources:
+          requests:
+            memory: 4G
+      networks:
+      - name: default
+        pod: {}
+      volumes:
+      - name: cdromiso
+        persistentVolumeClaim:
+          claimName: iso-win10
+      - name: harddrive
+        persistentVolumeClaim:
+          claimName: pvc-win10
+      - name: virtiocontainerdisk
+        persistentVolumeClaim:
+          claimName: iso-virtio
