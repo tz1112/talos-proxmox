@@ -2,3 +2,4 @@ kubeconfig
 **/*.iso
 **/*.qcow2.gz
 _out
+.devcontainer/terraform
