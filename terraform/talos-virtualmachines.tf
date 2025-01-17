@@ -1,6 +1,6 @@
 variable "proxmox_target_node" {
   type    = string
-  default = "PVE"
+  default = CHANGE_ME!
 }
 
 variable "proxmox_target_tags" {
