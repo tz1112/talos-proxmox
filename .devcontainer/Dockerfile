@@ -20,4 +20,12 @@ RUN mv ./virtctl /usr/local/bin
 # install terraform (online install broken at time of creation)
 COPY terraform /usr/local/bin
 
+# install k9s
+RUN curl -LO https://github.com/derailed/k9s/releases/download/v0.32.7/k9s_linux_amd64.deb
+RUN apt install -y ./k9s_linux_amd64.deb
+RUN rm k9s_linux_amd64.deb
+
+# install virt-viewer for vnc support
+RUN apt install -y virt-viewer
+
 USER ubuntu 

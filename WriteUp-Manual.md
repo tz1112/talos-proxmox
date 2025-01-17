@@ -1,4 +1,4 @@
-# WriteUp
+# WriteUp - Manual
 
 1. Create vms in proxmox
 
@@ -70,9 +70,9 @@ export VERSION=$(echo ${TAG##*/})
 kubectl create -f https://github.com/kubevirt/containerized-data-importer/releases/download/$VERSION/cdi-operator.yaml
 kubectl create -f https://github.com/kubevirt/containerized-data-importer/releases/download/$VERSION/cdi-cr.yaml
 
-<wait till all 4 pods in cdi are created>
+<wait till all 4 pods in ns cdi are created>
 
-9. Dpeloy local path provisioner (https://www.talos.dev/v1.9/kubernetes-guides/configuration/local-storage/)
+9. Deloy local path provisioner (https://www.talos.dev/v1.9/kubernetes-guides/configuration/local-storage/)
 
 kubectl apply -f local-path-provider-modified.yaml
 

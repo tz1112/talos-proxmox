@@ -1,5 +1,13 @@
 kubeconfig
+talosconfig
 **/*.iso
 **/*.qcow2.gz
 _out
 .devcontainer/terraform
+terraform/secrets.tfvars
+terraform/.terraform
+terraform/.terraform.lock.hcl
+terraform/plan.out
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+kubeconfig.SERVER_WITHOUT_TERRAFORM.OLD

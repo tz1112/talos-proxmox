@@ -29,3 +29,9 @@ This requires an active upload proxy on the specified IP:PORT, for example using
 ```console
 kubectl port-forward service/cdi-uploadproxy 1338:443 -n cdi
 ```
+
+# terraform 
+
+Remember to change var.proxmox_target_node.default to the actual PVE name.
+
+
