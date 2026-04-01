@@ -1,3 +1,7 @@
+# UPDATE 2026
+
+For dedicated patching (including VIP deployment), this is an interesting source: https://blog.dalydays.com/post/kubernetes-homelab-series-part-1-talos-linux-proxmox/#talos-linux-setup
+
 # talos-proxmox
 Project for fully automated deployments of kubevirt/cdi on a talos cluster in proxmox. Contains all configuration and asset manifests to run Linux and Windows VMs.
 
